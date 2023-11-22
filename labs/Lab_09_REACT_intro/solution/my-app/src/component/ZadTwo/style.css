@@ -1,0 +1,21 @@
+.red {
+  color: red;
+}
+.post {
+  padding: 10px;
+  border: 2px solid black;
+  min-width: 150px;
+  border-radius: 10px;
+}
+.post + .post {
+  margin-top: 20px;
+}
+.postFlex {
+  display: flex;
+  column-gap: 30px;
+}
+.PostForm {
+  display: flex;
+  flex-direction: column;
+  column-gap: 20px;
+}
