@@ -10,7 +10,7 @@ def read_file(file_name):
 def main():
     file_clients = '../clients.json'
     file_payments = '../payments.json'
-    write_file =f"../excel/my_payments_analytics_{datetime.now().strftime('%Y-%m-%d')}.xlsx"
+    write_file =f"my_payments_analytics_{datetime.now().strftime('%Y-%m-%d')}.xlsx"
     data_clients = read_file(file_clients)
     data_payments = read_file(file_payments)
     some_data = {'clients': data_clients['clients'], 'payments': data_payments['payments']}

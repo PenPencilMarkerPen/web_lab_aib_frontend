@@ -13,10 +13,12 @@ class XlsAnalyticPaymentWriter:
     def writer(self, write_file):
         workbook = xlsxwriter.Workbook(write_file)
         worksheet = workbook.add_worksheet()
+        worksheet.set_column('A:Z', 35)
+        workbook.add_format().set_align('center')
         row = 0
         col = 0
         for items in self.ANALYTICS_BLOCKS_CLASSES:
-            item_init = items(worksheet, row, col, self.data)
+            item_init = items(workbook,worksheet, row, col, self.data)
             item_init.writer_header()
             item_init.writer_some_data()
         workbook.close()
