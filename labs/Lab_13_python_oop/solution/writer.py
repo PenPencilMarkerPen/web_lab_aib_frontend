@@ -14,7 +14,6 @@ class XlsAnalyticPaymentWriter:
         workbook = xlsxwriter.Workbook(write_file)
         worksheet = workbook.add_worksheet()
         worksheet.set_column('A:Z', 35)
-        workbook.add_format().set_align('center')
         row = 0
         col = 0
         for items in self.ANALYTICS_BLOCKS_CLASSES:
