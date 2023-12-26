@@ -77,7 +77,6 @@ class Geography(BaseXlsBlock):
     CITY = 'Города'
     KOL = 'Количество городов'
     def writer_header(self):
-        print("Report")
         self.row =19
         self.worksheet.write(self.row, self.col, self.TITLE)
         self.row +=1

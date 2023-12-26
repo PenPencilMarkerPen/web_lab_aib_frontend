@@ -1,26 +1,31 @@
-
-data = input()
-characters_count = {}
-max_count = 1
-for line in data:
-    line = line.strip()
-    for char in line:
-        if char in characters_count:
-            characters_count[char] += 1
-            max_count = max(max_count, characters_count[char])
+def main(line):
+    mx = 0
+    slovar = {}
+    for item in line:
+        if item == ' ':
+            continue
+        if item in slovar:
+            slovar[item] += 1
+            mx = max(mx, slovar[item])
         else:
-            characters_count[char] = 1
-unique_chars = sorted(set(characters_count.keys()))
+            slovar[item] = 1
 
-for i in range(max_count, 0, -1):
-    line = ''
-    for char in unique_chars:
-        if characters_count.get(char, 0) >= i:
-            line += '#'
-        else:
-            line += ' '
-    print(line)
+    ch = list(slovar.keys())
+    ch.sort()
+    i = mx
+    while i > 0:
+        str = ""
+        for item in ch:
+            if slovar[item] >= i:
+                str += '#'
+            else:
+                str += ' '
+        print(str)
+        i -= 1
+    for c in ch:
+        print(c, end='')
 
-for char in unique_chars:
-    print(char, end=' ')
 
+if __name__=='__main__':
+    line = input()
+    main(line)

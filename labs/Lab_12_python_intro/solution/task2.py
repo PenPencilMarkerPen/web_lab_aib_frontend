@@ -1,20 +1,16 @@
-from typing import List
+import heapq
 
-def search_median(x: List[int], count):
-    medians = []
-    for i in range(count):
-        x[:i+1] = sorted(x[:i+1])
-        if (i + 1) % 2 != 0:
-            median = x[(i + 1) // 2]
-        else:
-            median = x[i // 2] 
-        medians.append(median)
+def find(n, arr):
+    max, min, result = [], [], 0
+    for i in range(n):
+        heapq.heappush(max, -arr[i])  
+        heapq.heappush(min, -heapq.heappop(max))
+        
+        if len(min) > len(max):
+            heapq.heappush(max, -heapq.heappop(min))  
+        result -= max[0]  
 
-    total_sum = sum(medians)
-    return total_sum
+    return result
 
-if __name__ == '__main__':
-    count = int(input())
-    digit = list(map(int, input().split()))[:count]
-    result = search_median(digit, count)
-    print(result)
+n, arr =int(input()), list(map(int, input().split()))
+print(find(n, arr))

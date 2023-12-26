@@ -5,7 +5,6 @@ from datetime import datetime
 def read_file(file_name):
     with open(file_name, "r", encoding="utf-8") as file:
         some_data = json.load(file)
-        print("Файл закрыт, а данные в памяти")
         return some_data
 
 def main():

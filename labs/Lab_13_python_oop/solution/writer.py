@@ -19,5 +19,4 @@ class XlsAnalyticPaymentWriter:
             item_init = items(worksheet, row, col, self.data)
             item_init.writer_header()
             item_init.writer_some_data()
-            print(self.position)
         workbook.close()
